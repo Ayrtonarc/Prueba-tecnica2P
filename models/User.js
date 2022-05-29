@@ -8,6 +8,7 @@ const UserSchema = new Schema({
     password: {
         type: String,
         required: true,
+        select: false,
     },
     email: {
         type: String,
@@ -15,7 +16,8 @@ const UserSchema = new Schema({
         unique: true,
         match: [
             //expresion regular
-            'Provve un correo valido'
+            /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+            'ingrese correo valido'
         ],
     },
     displayName: {
@@ -29,4 +31,4 @@ const UserSchema = new Schema({
 
 //exportar
 
-module.exports("User", UserSchema);
+module.exports = model("User", UserSchema);
