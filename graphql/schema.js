@@ -1,6 +1,6 @@
 //consultas y mutaciones que podemos hacer en este archivo el schema define que es lo que se puede consultar alterar 
 const { GraphQLSchema, GraphQLObjectType } = require("graphql");
-const { hello } = require('./queries');
+const { users } = require('./queries');
 const { register, login } = require('./mutations');
 
 
@@ -8,7 +8,7 @@ const QueryType = new GraphQLObjectType({ //querys
     name: "QueryType",
     description: 'The root query type',
     fields: {
-        hello,
+       users ,
     }
 });
 
